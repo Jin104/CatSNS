@@ -38,14 +38,12 @@ public class KnowledgeFragment extends Fragment {
 
     public List<KnowledgeObject> getTestData() {
         List<KnowledgeObject> trackList = new ArrayList<KnowledgeObject>();
-        trackList.add(new KnowledgeObject("행동언어", "고양이의 행동언어", "ㅎㅎ"));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
-        trackList.add(new KnowledgeObject("Falling over", "12 tracks", ""));
+        trackList.add(new KnowledgeObject("사전", "고양이 사전", ""));
+        trackList.add(new KnowledgeObject("행동언어", "고양이 행동언어", ""));
+        trackList.add(new KnowledgeObject("마사지", "고양이 마사지", ""));
+        trackList.add(new KnowledgeObject("먹으면안되는 음식", "고양이가 먹으면 안되는 음식", ""));
+        trackList.add(new KnowledgeObject("건강", "고양이 건강", ""));
+        trackList.add(new KnowledgeObject("사료", "고양이 사료", ""));
         return trackList;
     }
 }

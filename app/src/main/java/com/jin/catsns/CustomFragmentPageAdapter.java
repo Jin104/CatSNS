@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.jin.catsns.knowledge.KnowledgeFragment;
 import com.jin.catsns.message.SongFragment;
+import com.jin.catsns.newsfeed.NewsfeedFragment;
 
 public class CustomFragmentPageAdapter extends FragmentPagerAdapter {
 
@@ -22,7 +23,7 @@ public class CustomFragmentPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new SongFragment();
+                return new NewsfeedFragment();
             case 1:
                 return new SongFragment();
             case 2:
