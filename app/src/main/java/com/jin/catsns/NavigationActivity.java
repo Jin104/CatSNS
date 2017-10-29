@@ -1,5 +1,6 @@
 package com.jin.catsns;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +19,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.jin.catsns.knowledge.KnowledgeFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.jin.catsns.chat.ChatFragment;
+import com.jin.catsns.post.MyPostActivity;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
     private Fragment fragment = null;
+    private FirebaseAuth mAuth;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -50,7 +54,7 @@ public class NavigationActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View header = navigationView.inflateHeaderView(R.layout.nav_header_music);
+        View header = navigationView.inflateHeaderView(R.layout.nav_header_catsns);
         TextView profileName = (TextView) header.findViewById(R.id.profile_name);
         profileName.setText("User");
 
@@ -61,9 +65,16 @@ public class NavigationActivity extends AppCompatActivity {
 
                 if (id == R.id.nav_library) {
                     fragment = new TapFragment();
-                } else if (id == R.id.nav_song) {
-                    fragment = new KnowledgeFragment();
-                } else if (id == R.id.nav_playlist) {
+                } else if (id == R.id.nav_friend) {
+                    fragment = new ChatFragment();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.main_container_wrapper, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+
+                } else if (id == R.id.nav_my_post_list) {
+                    Intent intent = new Intent(NavigationActivity.this, MyPostActivity.class);
+                    startActivity(intent);
 
                 } else if (id == R.id.nav_sound_cound) {
 
@@ -109,6 +120,9 @@ public class NavigationActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id == R.id.logout){
+            mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
         }
 
         return super.onOptionsItemSelected(item);

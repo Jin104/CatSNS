@@ -5,9 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.jin.catsns.chat.ChatFragment;
 import com.jin.catsns.knowledge.KnowledgeFragment;
-import com.jin.catsns.message.SongFragment;
-import com.jin.catsns.newsfeed.NewsfeedFragment;
+import com.jin.catsns.song.SongFragment;
+import com.jin.catsns.post.PostFragment;
 
 public class CustomFragmentPageAdapter extends FragmentPagerAdapter {
 
@@ -23,19 +24,13 @@ public class CustomFragmentPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new NewsfeedFragment();
+                return new PostFragment();
             case 1:
-                return new SongFragment();
+                return new ChatFragment();
             case 2:
                 return new KnowledgeFragment();
             case 3:
                 return new SongFragment();
-            /*case 1:
-                return new KnowledgeFragment();
-            case 2:
-                return new AlbumFragment();
-            case 3:
-                return new ArtistFragment();*/
         }
         return null;
     }
@@ -49,7 +44,7 @@ public class CustomFragmentPageAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0:
-                return "NEWSFEED";
+                return "POST";
             case 1:
                 return "MESSAGE";
             case 2:

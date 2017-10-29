@@ -1,4 +1,4 @@
-package com.jin.catsns.message;
+package com.jin.catsns.song;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

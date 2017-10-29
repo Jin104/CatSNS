@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jin.catsns">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,9 +22,24 @@
         </activity>
         <activity
             android:name=".NavigationActivity"
-            android:label="@string/title_activity_music"
+            android:label="CAT SNS"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TapFragment"></activity>
+        <activity android:name=".post.PostActivity" />
+        <activity android:name=".login.RegisterActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.SetupActivity" />
+        <activity android:name=".login.GoogleLoginActivity" />
+        <activity android:name=".login.GoogleSetupActivity" />
+        <activity android:name=".post.SinglePostActivity">
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".post.MyPostActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationActivity"/>
+        </activity>
     </application>
 
 </manifest>

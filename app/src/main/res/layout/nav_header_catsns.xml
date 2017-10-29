@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_8sdp"
         android:src="@drawable/penguin"
-        android:id="@+id/circleView"/>
+        android:id="@+id/nav_profile_img"/>
 
     <TextView
         android:id="@+id/profile_name"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/_8sdp"
         android:textSize="@dimen/_16sdp"
-        android:text="@string/adele_hello"
+        android:text="User"
         android:layout_gravity="center"
         android:textColor="@color/colorWhite"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />

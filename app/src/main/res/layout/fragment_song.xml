@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorWhite"
-    tools:context="com.jin.catsns.message.SongFragment">
+    tools:context="com.jin.catsns.song.SongFragment">
     <!--android:background="@drawable/bg"-->
 
     <!--<TextView-->

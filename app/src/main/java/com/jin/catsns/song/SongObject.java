@@ -1,4 +1,4 @@
-package com.jin.catsns.message;
+package com.jin.catsns.song;
 
 public class SongObject {
 

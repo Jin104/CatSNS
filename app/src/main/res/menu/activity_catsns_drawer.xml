@@ -10,16 +10,16 @@
 
     <group android:id="@+id/two" android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_song"
+            android:id="@+id/nav_friend"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/music_songs" />
+            android:title="Friend" />
     </group>
 
     <group android:id="@+id/three" android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_playlist"
+            android:id="@+id/nav_my_post_list"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/music_playlists" />
+            android:title="My Posts" />
     </group>
 
     <item android:title="@string/remote_services">
