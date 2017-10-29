@@ -181,14 +181,16 @@ public class PostFragment extends Fragment {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
+                    if(mAuth.getCurrentUser()!=null) {
+                        if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
 
-                        mLikebtn.setImageResource(R.mipmap.like_red);
+                            mLikebtn.setImageResource(R.mipmap.like_red);
 
-                    }else{
+                        } else {
 
-                        mLikebtn.setImageResource(R.mipmap.like_black);
+                            mLikebtn.setImageResource(R.mipmap.like_black);
 
+                        }
                     }
                 }
 

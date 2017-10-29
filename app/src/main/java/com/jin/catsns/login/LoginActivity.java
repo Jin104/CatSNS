@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
+    private SignInButton googlebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,19 @@ public class LoginActivity extends AppCompatActivity {
         loginEmail = (EditText)findViewById(R.id.loginEmail);
         loginPass = (EditText)findViewById(R.id.loginPass);
 
+        googlebtn = (SignInButton)findViewById(R.id.google_btn);
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("User");
+
+        googlebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, GoogleLoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void loginButtonClicked(View view){

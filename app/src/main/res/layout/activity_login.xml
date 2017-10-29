@@ -41,5 +41,5 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_105sdp"
-        android:visibility="visible" />
+        android:visibility="visible"/>
 </LinearLayout>
