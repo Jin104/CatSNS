@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jin.catsns.R;
+import com.jin.catsns.comment.CommentActivity;
 import com.jin.catsns.login.LoginActivity;
 import com.squareup.picasso.Picasso;
 
@@ -117,7 +118,7 @@ public class PostFragment extends Fragment {
                     }
                 });
 
-                viewHolder.mLikebtn.setOnClickListener(new View.OnClickListener() {
+                viewHolder.mLikeBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -153,6 +154,15 @@ public class PostFragment extends Fragment {
                     }
                 });
 
+                viewHolder.mCommentBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), CommentActivity.class);
+                        intent.putExtra("post_key", post_key);
+                        startActivity(intent);
+                    }
+                });
+
             }
         };
         mPostList.setAdapter(FBRA);
@@ -162,15 +172,19 @@ public class PostFragment extends Fragment {
     public static class PostViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
-        ImageButton mLikebtn;
+        ImageButton mLikeBtn;
+        ImageButton mCommentBtn;
         DatabaseReference mDatabaseLike;
+        //DatabaseReference mDatabaseComment;
         FirebaseAuth mAuth;
 
         public PostViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-            mLikebtn = (ImageButton) mView.findViewById(R.id.like_btn);
+            mLikeBtn = (ImageButton) mView.findViewById(R.id.like_btn);
+            mCommentBtn = (ImageButton) mView.findViewById(R.id.comment_btn);
             mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
+            //mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Comment");
             mAuth = FirebaseAuth.getInstance();
 
             mDatabaseLike.keepSynced(true);
@@ -184,11 +198,11 @@ public class PostFragment extends Fragment {
                     if(mAuth.getCurrentUser()!=null) {
                         if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
 
-                            mLikebtn.setImageResource(R.mipmap.like_red);
+                            mLikeBtn.setImageResource(R.mipmap.like_red);
 
                         } else {
 
-                            mLikebtn.setImageResource(R.mipmap.like_black);
+                            mLikeBtn.setImageResource(R.mipmap.like_black);
 
                         }
                     }

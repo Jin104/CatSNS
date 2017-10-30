@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_3sdp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/comment_profile_img"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            app:srcCompat="@mipmap/ic_launcher_round"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="@dimen/_3sdp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User name"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:id="@+id/comment_username"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="user id"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:id="@+id/comment_user_id"/>
+
+            </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Description ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+            android:layout_margin="@dimen/_5sdp"
+            android:id="@+id/comment_desc"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="1일"
+                android:id="@+id/comment_date"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="좋아요10개"
+                android:layout_margin="@dimen/_5sdp"
+                android:id="@+id/comment_like"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="답글달기"
+                android:layout_margin="@dimen/_5sdp"
+                android:id="@+id/comment_comment"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <ImageButton
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:id="@+id/like_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            app:srcCompat="@mipmap/like_black" />
+    </LinearLayout>
+
+</LinearLayout>

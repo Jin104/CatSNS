@@ -48,11 +48,22 @@
                 android:id="@+id/like_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/like_black"
-                android:background="@color/colorWhite"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_10sdp"/>
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:background="@color/colorWhite"
+                app:srcCompat="@mipmap/like_black" />
+
+            <ImageButton
+                android:id="@+id/comment_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/comment_icon"
+                android:background="@color/colorWhite"/>
+
         </LinearLayout>
 
     </LinearLayout>

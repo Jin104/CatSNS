@@ -1,4 +1,4 @@
-package com.jin.catsns;
+package com.jin.catsns.View;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
