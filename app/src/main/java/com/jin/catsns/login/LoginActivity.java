@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jin.catsns.NavigationActivity;
 import com.jin.catsns.R;
 import com.jin.catsns.post.PostFragment;
 
@@ -40,18 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         loginEmail = (EditText)findViewById(R.id.loginEmail);
         loginPass = (EditText)findViewById(R.id.loginPass);
 
-        googlebtn = (SignInButton)findViewById(R.id.google_btn);
-
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("User");
-
-        googlebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, GoogleLoginActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -83,7 +74,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"로그인성공",Toast.LENGTH_SHORT).show();
                     //Intent loginIntent = new Intent(LoginActivity.this, PostFragment.class);
                     //startActivity(loginIntent);
-                    finish();
+                    //finish();
+                    startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
                 }else{
                     Toast.makeText(LoginActivity.this,"로그인실패",Toast.LENGTH_SHORT).show();
                 }

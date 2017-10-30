@@ -62,7 +62,7 @@ public class PostFragment extends Fragment {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()==null){
                     Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
-                    loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(loginIntent);
                 }
             }

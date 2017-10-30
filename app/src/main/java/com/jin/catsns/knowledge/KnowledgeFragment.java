@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jin.catsns.R;
 
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KnowledgeFragment extends Fragment {
+
 
 
     public KnowledgeFragment() {
@@ -25,13 +28,13 @@ public class KnowledgeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_knowledge, container, false);
 
-        RecyclerView playlisRecyclerView = (RecyclerView)view.findViewById(R.id.your_play_list);
+        RecyclerView playlistRecyclerView = (RecyclerView)view.findViewById(R.id.your_play_list);
         GridLayoutManager gridLayout = new GridLayoutManager(getActivity(), 2);
-        playlisRecyclerView.setLayoutManager(gridLayout);
-        playlisRecyclerView.setHasFixedSize(true);
+        playlistRecyclerView.setLayoutManager(gridLayout);
+        playlistRecyclerView.setHasFixedSize(true);
 
         KnowledgeAdapter mAdapter = new KnowledgeAdapter(getActivity(), getTestData());
-        playlisRecyclerView.setAdapter(mAdapter);
+        playlistRecyclerView.setAdapter(mAdapter);
 
         return view;
     }
@@ -45,5 +48,20 @@ public class KnowledgeFragment extends Fragment {
         trackList.add(new KnowledgeObject("건강", "고양이 건강", ""));
         trackList.add(new KnowledgeObject("사료", "고양이 사료", ""));
         return trackList;
+    }
+
+    public class KnowledgeViewHolder extends RecyclerView.ViewHolder{
+
+        public TextView playlistTitle;
+        public TextView playlistTracks;
+        public ImageView playlistCover;
+
+        public KnowledgeViewHolder(View itemView) {
+            super(itemView);
+
+            playlistTitle = (TextView)itemView.findViewById(R.id.play_list_name);
+            playlistTracks = (TextView)itemView.findViewById(R.id.number_of_tracks);
+            playlistCover = (ImageView)itemView.findViewById(R.id.play_list_cover);
+        }
     }
 }
