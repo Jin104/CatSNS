@@ -158,7 +158,8 @@ public class PostFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), CommentActivity.class);
-                        intent.putExtra("post_key", post_key);
+                        intent.putExtra("PostId", post_key);
+                        intent.putExtra("UserId", mAuth.getCurrentUser().getUid());
                         startActivity(intent);
                     }
                 });

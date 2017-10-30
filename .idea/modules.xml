@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CatSNS.iml" filepath="$PROJECT_DIR$/CatSNS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CatSNS.iml" filepath="$PROJECT_DIR$/CatSNS.iml" />
       <module fileurl="file://C:/Users/Administrator/StudioProjects/CatSNS/CatSNS.iml" filepath="C:/Users/Administrator/StudioProjects/CatSNS/CatSNS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:/Users/Administrator/StudioProjects/CatSNS/app/app.iml" filepath="C:/Users/Administrator/StudioProjects/CatSNS/app/app.iml" />
     </modules>
