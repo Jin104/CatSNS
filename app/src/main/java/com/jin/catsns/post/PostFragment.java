@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jin.catsns.FirebaseUtils;
 import com.jin.catsns.R;
 import com.jin.catsns.comment.CommentActivity;
 import com.jin.catsns.login.LoginActivity;
@@ -30,12 +31,11 @@ import com.squareup.picasso.Picasso;
 public class PostFragment extends Fragment {
 
     private RecyclerView mPostList;
-    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
     private DatabaseReference mDatabaseLike;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
-    private DatabaseReference mDatabaseCurrentUser;
+    private Post mPost;
 
     private boolean mProcessLike = false;
 
@@ -46,36 +46,33 @@ public class PostFragment extends Fragment {
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_post, container, false);
 
-        getActivity().setTitle("Cat");
         mPostList = (RecyclerView)view.findViewById(R.id.post_list);
         mPostList.setHasFixedSize(true);
         mPostList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("CatSNS");
-        mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
+        //mDatabase = FirebaseDatabase.getInstance().getReference().child("Posts");
+        //mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Post_liked");
         mAuth = FirebaseAuth.getInstance();
 
-        mDatabaseLike.keepSynced(true);
+        //mDatabaseLike.keepSynced(true);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()==null){
-                    Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
-                    //loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(loginIntent);
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
             }
         };
 
 
-        FloatingActionButton floatingActionButton = (FloatingActionButton)view.findViewById(R.id.news_floating_btn);
+        FloatingActionButton floatingActionButton = (FloatingActionButton)view.findViewById(R.id.floating_btn);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PostActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), PostCreateActivity.class));
             }
         });
 
@@ -91,8 +88,9 @@ public class PostFragment extends Fragment {
         FirebaseRecyclerAdapter<Post, PostViewHolder> FBRA = new FirebaseRecyclerAdapter<Post, PostViewHolder>(
 
                 Post.class,
-                R.layout.post_row,
+                R.layout.row_post,
                 PostViewHolder.class,
+                //FirebaseUtils.getCommentRef(m)
                 mDatabase
 
         ){
@@ -102,10 +100,10 @@ public class PostFragment extends Fragment {
 
                 final String post_key = getRef(position).getKey().toString();
 
-                viewHolder.setTitle(model.getTitle());
-                viewHolder.setDesc(model.getDesc());
-                viewHolder.setImage(getContext(),model.getImage());
-                viewHolder.setUserName(model.getUsername());
+                viewHolder.setTitle(model.getPostText());
+                viewHolder.setDesc(model.getPostText());
+                viewHolder.setImage(getActivity(),model.getPostImageUrl());
+                //viewHolder.setUserName(model.getUsername());
 
                 viewHolder.setLikeBtn(post_key);
 
