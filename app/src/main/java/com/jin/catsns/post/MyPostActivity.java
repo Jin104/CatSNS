@@ -210,23 +210,23 @@ public class MyPostActivity extends AppCompatActivity {
         }
 
         public void setTitle(String title){
-            TextView post_title = (TextView)mView.findViewById(R.id.textTitle);
-            post_title.setText(title);
+           // TextView post_title = (TextView)mView.findViewById(R.id.);
+            //post_title.setText(title);
         }
 
         public void setDesc(String desc){
-            TextView post_desc = (TextView)mView.findViewById(R.id.textDescription);
-            post_desc.setText(desc);
+           // TextView post_desc = (TextView)mView.findViewById(R.id.textTitle);
+           // post_desc.setText(desc);
         }
 
         public void setImage(Context context, String image){
-            ImageView post_image = (ImageView)mView.findViewById(R.id.post_image);
-            Picasso.with(context).load(image).into(post_image);
+            //ImageView post_image = (ImageView)mView.findViewById(R.id.textTitle);
+           // Picasso.with(context).load(image).into(post_image);
         }
 
         public void setUserName(String userName){
-            TextView postUserName = (TextView)mView.findViewById(R.id.textUsername);
-            postUserName.setText(userName);
+            //TextView postUserName = (TextView)mView.findViewById(R.id.textTitle);
+            //postUserName.setText(userName);
         }
     }
 }

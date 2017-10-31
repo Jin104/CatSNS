@@ -1,71 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_margin="@dimen/_20sdp"
-
     xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/_10sdp"
-        >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
-            android:id="@+id/post_image"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Post Title"
-            android:layout_margin="@dimen/_5sdp"
-            android:id="@+id/textTitle"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Post Description"
-            android:layout_margin="@dimen/_5sdp"
-            android:id="@+id/textDescription"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Username"
-            android:id="@+id/textUsername"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginRight="@dimen/_2sdp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/like_btn"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_post_owner_display"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:id="@+id/tv_post_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:text="Username"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_post_userid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_weight="1"
-                android:background="@color/colorWhite"
-                app:srcCompat="@mipmap/like_black" />
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="10h30" />
 
-            <ImageButton
-                android:id="@+id/comment_btn"
+            <TextView
+                android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/comment_icon"
-                android:background="@color/colorWhite"/>
-
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="10h30" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_post_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Post text has some words that I could use for a place holder like this" />
+
+        <ImageView
+            android:id="@+id/iv_post_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/like_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageButton
+                    android:id="@+id/iv_like_btn"
+                    android:background="@color/colorWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/like_black" />
+
+                <TextView
+                    android:id="@+id/tv_likes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/comment_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/comment_icon" />
+
+                <TextView
+                    android:id="@+id/tv_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/colorDarker"/>
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_margin="@dimen/_10sdp"-->
+        <!--&gt;-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/_150sdp"-->
+            <!--android:id="@+id/post_image"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Post Title"-->
+            <!--android:layout_margin="@dimen/_5sdp"-->
+            <!--android:id="@+id/textTitle"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Post Description"-->
+            <!--android:layout_margin="@dimen/_5sdp"-->
+            <!--android:id="@+id/textDescription"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Username"-->
+            <!--android:id="@+id/textUsername"/>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_marginRight="@dimen/_2sdp">-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/like_btn"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/_5sdp"-->
+                <!--android:layout_marginTop="@dimen/_10sdp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--app:srcCompat="@mipmap/like_black" />-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/comment_btn"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/_5sdp"-->
+                <!--android:layout_marginTop="@dimen/_10sdp"-->
+                <!--android:layout_weight="1"-->
+                <!--app:srcCompat="@mipmap/comment_icon"-->
+                <!--android:background="@color/colorWhite"/>-->
+
+        <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+    <!--android.support.v7.widget.CardView-->
+</LinearLayout>

@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.jin.catsns.chat.ChatFragment;
+import com.jin.catsns.login.LoginActivity;
 import com.jin.catsns.post.MyPostActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -123,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.logout){
             mAuth = FirebaseAuth.getInstance();
             mAuth.signOut();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
