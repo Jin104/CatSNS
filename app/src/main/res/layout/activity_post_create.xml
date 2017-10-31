@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jin.catsns.post.PostCreateActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_post_text"
+            android:hint="내용을 입력하세요..."
+            />
+
+    </ScrollView>
+
+
+    <!--<ImageButton-->
+        <!--android:layout_width="@dimen/_250sdp"-->
+        <!--android:layout_height="@dimen/_250sdp"-->
+        <!--android:background="@drawable/add_image"-->
+        <!--android:layout_marginLeft="@dimen/_35sdp"-->
+        <!--android:layout_marginTop="@dimen/_10sdp"-->
+        <!--android:onClick="imageButtonClick"-->
+        <!--android:id="@+id/imageButton"/>-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/editName"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Enter name"-->
+        <!--android:background="@drawable/editshape"-->
+        <!--android:padding="@dimen/_10sdp"-->
+        <!--android:layout_margin="@dimen/_5sdp"/>-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/editDesc"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Enter description"-->
+        <!--android:background="@drawable/editshape"-->
+        <!--android:padding="@dimen/_10sdp"-->
+        <!--android:layout_margin="@dimen/_5sdp"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/_50sdp"-->
+        <!--android:text="Submit"-->
+        <!--android:onClick="submitButtonClicked"/>-->
+</LinearLayout>

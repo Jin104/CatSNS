@@ -9,25 +9,25 @@
     android:padding="@dimen/_5sdp">
 
     <EditText
-        android:id="@+id/nameField"
-        android:hint="Enter name"
+        android:id="@+id/name_field"
+        android:hint="Enter id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/emailField"
+        android:id="@+id/email_field"
         android:hint="Enter email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/passField"
+        android:id="@+id/pass_field"
         android:hint="Enter password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="Register"
+        android:text="Register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="registerButtonClicked"/>

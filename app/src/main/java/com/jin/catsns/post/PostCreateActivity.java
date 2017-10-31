@@ -31,7 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.jin.catsns.R;
 
-public class PostActivity extends AppCompatActivity {
+public class PostCreateActivity extends AppCompatActivity {
 
     private static final int GALLERY_REQUEST = 2;
     private Uri uri = null;
@@ -48,7 +48,7 @@ public class PostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.activity_post_create);
         editName = (EditText)findViewById(R.id.editName);
         editDesc = (EditText)findViewById(R.id.editDesc);
 
@@ -103,7 +103,7 @@ public class PostActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     @SuppressWarnings("VisibleForTests")
                     final Uri downloadurl = taskSnapshot.getDownloadUrl();
-                    Toast.makeText(PostActivity.this, "Upload Complete",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostCreateActivity.this, "Upload Complete",Toast.LENGTH_SHORT).show();
                     final DatabaseReference newPost = databaseReference.push();
 
                     mDatabaseUsers.addValueEventListener(new ValueEventListener() {
@@ -117,7 +117,7 @@ public class PostActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        //Intent postFragmentIntent = new Intent(PostActivity.this, PostFragment.class);
+                                        //Intent postFragmentIntent = new Intent(PostCreateActivity.this, PostFragment.class);
                                         //startActivity(postFragmentIntent);
                                         finish();
                                     }
