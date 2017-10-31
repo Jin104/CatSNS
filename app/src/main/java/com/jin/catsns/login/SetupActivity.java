@@ -24,25 +24,25 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class SetupActivity extends AppCompatActivity {
 
-    private EditText editDisplayName;
-    private ImageButton displayImage;
+    private EditText editName;
+    private ImageButton profileImage;
     private static final int GALLERY_REQ=1;
     private Uri mImageUri = null;
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabaseusers;
-    private StorageReference mStorageref;
+    private DatabaseReference mDatabase;
+    private StorageReference mStorageRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
 
-        editDisplayName = (EditText)findViewById(R.id.displayName);
-        displayImage = (ImageButton)findViewById(R.id.setupImageButton);
+        editName = (EditText)findViewById(R.id.edit_name);
+        profileImage = (ImageButton)findViewById(R.id.profile_image_btn);
 
-        mDatabaseusers = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
         mAuth = FirebaseAuth.getInstance();
-        mStorageref = FirebaseStorage.getInstance().getReference().child("profile_image");
+        mStorageRef = FirebaseStorage.getInstance().getReference().child("Profile_Image");
 
     }
 
@@ -69,7 +69,7 @@ public class SetupActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if(resultCode==RESULT_OK){
                 mImageUri = result.getUri();
-                displayImage.setImageURI(mImageUri);
+                profileImage.setImageURI(mImageUri);
             }else if(requestCode==CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                 Exception error = result.getError();
             }
@@ -78,19 +78,19 @@ public class SetupActivity extends AppCompatActivity {
 
     public void doneButtonClicked(View view){
 
-        final String name = editDisplayName.getText().toString().trim();
+        final String name = editName.getText().toString().trim();
         final String user_id = mAuth.getCurrentUser().getUid();
 
         if(!TextUtils.isEmpty(name) && mImageUri!=null){
 
-            StorageReference filepath = mStorageref.child(mImageUri.getLastPathSegment());
+            StorageReference filepath = mStorageRef.child(mImageUri.getLastPathSegment());
             filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    String downloadurl = taskSnapshot.getDownloadUrl().toString();
-                    mDatabaseusers.child(user_id).child("name").setValue(name);
-                    mDatabaseusers.child(user_id).child("profile_image").setValue(downloadurl);
+                    String downloadUrl = taskSnapshot.getDownloadUrl().toString();
+                    mDatabase.child(user_id).child("name").setValue(name);
+                    mDatabase.child(user_id).child("imageUrl").setValue(downloadUrl);
 
                     finish();
                 }

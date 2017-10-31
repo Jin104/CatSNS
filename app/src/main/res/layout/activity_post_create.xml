@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jin.catsns.post.PostCreateActivity">
+
+    <ScrollView
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_desc"
+                android:hint="내용을 입력하세요..."
+                android:background="@null"/>
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/colorBlack"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:src="@drawable/add_image"
+            android:onClick="imageButtonClicked"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_margin="@dimen/_3sdp"
+            android:background="@drawable/uploadshape"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Upload"
+            android:onClick="uploadButtonClicked"/>
+
+    </LinearLayout>
+
+    <!--<ImageButton-->
+    <!--android:layout_width="@dimen/_250sdp"-->
+    <!--android:layout_height="@dimen/_250sdp"-->
+    <!--android:background="@drawable/add_image1"-->
+    <!--android:layout_marginLeft="@dimen/_35sdp"-->
+    <!--android:layout_marginTop="@dimen/_10sdp"-->
+    <!--android:onClick="imageButtonClick"-->
+    <!--android:id="@+id/imageButton"/>-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/editName"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:hint="Enter name"-->
+    <!--android:background="@drawable/editshape"-->
+    <!--android:padding="@dimen/_10sdp"-->
+    <!--android:layout_margin="@dimen/_5sdp"/>-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/editDesc"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:hint="Enter description"-->
+    <!--android:background="@drawable/editshape"-->
+    <!--android:padding="@dimen/_10sdp"-->
+    <!--android:layout_margin="@dimen/_5sdp"/>-->
+
+    <!--<Button-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/_50sdp"-->
+    <!--android:text="Submit"-->
+    <!--android:onClick="submitButtonClicked"/>-->
+</LinearLayout>

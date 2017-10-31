@@ -17,8 +17,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jin.catsns.R;
-import com.jin.catsns.post.PostActivity;
-import com.jin.catsns.post.PostFragment;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -33,9 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        nameField = (EditText)findViewById(R.id.nameField);
-        passField = (EditText)findViewById(R.id.passField);
-        emailField = (EditText)findViewById(R.id.emailField);
+        nameField = (EditText)findViewById(R.id.name_field);
+        passField = (EditText)findViewById(R.id.pass_field);
+        emailField = (EditText)findViewById(R.id.email_field);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
     }
@@ -50,20 +48,21 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+
                         String user_id = mAuth.getCurrentUser().getUid();
+
                         FirebaseUser firebaseUser = task.getResult().getUser();
                         DatabaseReference current_user_db = mDatabase.child(user_id);
                         current_user_db.child("id").setValue(name);
                         current_user_db.child("email").setValue(email);
-                        current_user_db.child("profile_image").setValue("default");
+                        current_user_db.child("imageUrl").setValue("default");
                         current_user_db.child("uid").setValue(firebaseUser.getUid());
 
                         Toast.makeText(getApplication(), "회원가입 성공", Toast.LENGTH_LONG).show();
-                        Intent mainIntent = new Intent(RegisterActivity.this, SetupActivity.class);
-                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(mainIntent);
+                        Intent intent = new Intent(RegisterActivity.this, SetupActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                         finish();
-
                     }
                     Toast.makeText(getApplication(), "실패", Toast.LENGTH_LONG).show();
                 }

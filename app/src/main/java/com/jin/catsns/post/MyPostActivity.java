@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -76,7 +74,7 @@ public class MyPostActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyPostActivity.this, PostActivity.class);
+                Intent intent = new Intent(MyPostActivity.this, PostCreateActivity.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +100,7 @@ public class MyPostActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<Post, MyPostActivity.PostViewHolder> FBRA = new FirebaseRecyclerAdapter<Post, MyPostActivity.PostViewHolder>(
 
                 Post.class,
-                R.layout.post_row,
+                R.layout.row_post,
                 MyPostActivity.PostViewHolder.class,
                 mQueryCurrentUser
 
@@ -113,10 +111,10 @@ public class MyPostActivity extends AppCompatActivity {
 
                 final String post_key = getRef(position).getKey().toString();
 
-                viewHolder.setTitle(model.getTitle());
-                viewHolder.setDesc(model.getDesc());
-                viewHolder.setImage(MyPostActivity.this,model.getImage());
-                viewHolder.setUserName(model.getUsername());
+                viewHolder.setTitle(model.getPostText());
+                viewHolder.setDesc(model.getPostText());
+                viewHolder.setImage(MyPostActivity.this,model.getPostImageUrl());
+                //viewHolder.setUserName(model.getUsername());
 
                 viewHolder.setLikeBtn(post_key);
 
@@ -212,23 +210,23 @@ public class MyPostActivity extends AppCompatActivity {
         }
 
         public void setTitle(String title){
-            TextView post_title = (TextView)mView.findViewById(R.id.textTitle);
-            post_title.setText(title);
+           // TextView post_title = (TextView)mView.findViewById(R.id.);
+            //post_title.setText(title);
         }
 
         public void setDesc(String desc){
-            TextView post_desc = (TextView)mView.findViewById(R.id.textDescription);
-            post_desc.setText(desc);
+           // TextView post_desc = (TextView)mView.findViewById(R.id.textTitle);
+           // post_desc.setText(desc);
         }
 
         public void setImage(Context context, String image){
-            ImageView post_image = (ImageView)mView.findViewById(R.id.post_image);
-            Picasso.with(context).load(image).into(post_image);
+            //ImageView post_image = (ImageView)mView.findViewById(R.id.textTitle);
+           // Picasso.with(context).load(image).into(post_image);
         }
 
         public void setUserName(String userName){
-            TextView postUserName = (TextView)mView.findViewById(R.id.textUsername);
-            postUserName.setText(userName);
+            //TextView postUserName = (TextView)mView.findViewById(R.id.textTitle);
+            //postUserName.setText(userName);
         }
     }
 }
