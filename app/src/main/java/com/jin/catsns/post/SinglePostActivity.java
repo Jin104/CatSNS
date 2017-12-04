@@ -32,44 +32,10 @@ public class SinglePostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_post);
+        setContentView(R.layout.activity_my_post);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        post_key = getIntent().getExtras().getString("PostId");
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("CatSNS");
-
-        singlePostDesc = (TextView)findViewById(R.id.singleDesc);
-        singlePostTitle = (TextView)findViewById(R.id.singleTitle);
-        singlePostImage = (ImageView)findViewById(R.id.singleImageView);
-
-        mAuth = FirebaseAuth.getInstance();
-        deleteButton = (Button)findViewById(R.id.singleDeleteButton);
-        deleteButton.setVisibility(View.INVISIBLE);
-
-        mDatabase.child(post_key).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String post_title = (String)dataSnapshot.child("title").getValue();
-                String post_desc = (String)dataSnapshot.child("desc").getValue();
-                String post_image = (String)dataSnapshot.child("image").getValue();
-                String post_uid = (String)dataSnapshot.child("uid").getValue();
-
-                singlePostTitle.setText(post_title);
-                singlePostDesc.setText(post_desc);
-                Picasso.with(SinglePostActivity.this).load(post_image).into(singlePostImage);
-
-                if(mAuth.getCurrentUser().getUid().equals(post_uid)){
-                    deleteButton.setVisibility(View.VISIBLE);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
 
